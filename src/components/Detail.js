@@ -48,11 +48,10 @@ const Background = styled.div`
     position: fixed;
     top: 0;
     left: 0;
-    bottom: 0;
+    bottom: 0; 
     right: 0;
     z-index: -1;
     opacity: 0.8;
-
     img {
         width: 100%;
         height: 100%;
@@ -135,5 +134,7 @@ const Description = styled.div`
     line-height: 1.4;
     font-size; 20px;
     margin-top: 16px;
+    color: rgb(249, 249, 249);
+    max-width: 760px;
 
 `
