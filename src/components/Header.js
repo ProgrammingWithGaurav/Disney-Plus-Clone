@@ -10,11 +10,6 @@ function Header() {
     const navigate = useNavigate();
     const userName = useSelector(selectUserName);
     const userPhoto = useSelector(selectUserPhoto);
-
-    useEffect(() => {
-        if(selectUserName) navigate('/login')
-    })
-
     useEffect(() => {
         auth.onAuthStateChanged(async (user) => {
             if(user) {
