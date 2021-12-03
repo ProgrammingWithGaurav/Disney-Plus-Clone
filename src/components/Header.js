@@ -10,6 +10,12 @@ function Header() {
     const navigate = useNavigate();
     const userName = useSelector(selectUserName);
     const userPhoto = useSelector(selectUserPhoto);
+    
+    useEffect(() => {
+        if(selectUserName) navigate('/login')
+    // eslint-disable-next-line
+    }, [])
+
     useEffect(() => {
         auth.onAuthStateChanged(async (user) => {
             if(user) {
@@ -21,7 +27,8 @@ function Header() {
                 navigate('/');
             }
         })
-    })
+    // eslint-disable-next-line
+    }, [])
 
     const signIn = () => {
         auth.signInWithPopup(provider)
@@ -113,16 +120,13 @@ const NavMenu = styled.div`
         align-items: center;
         padding: 0 12px;
         cursor: pointer;
-
         img {
             height: 20px;
         }
-
         span {
             font-size: 13px;
             letter-spacing: 1.42px;
             position: relative;
-
             &:after {
                 content: "";
                 height: 2px;
@@ -137,7 +141,6 @@ const NavMenu = styled.div`
                 transform: scaleX(0);
             }
         }
-
         &:hover {
             span:after {
                 transform: scaleX(1);
@@ -163,7 +166,6 @@ const Login = styled.div`
     transition: all 200ms ease 0s;
     background-color: rgba(0, 0, 0, 0.6);
     cursor: pointer;
-
     &:hover {
         background-color: #f9f9f9;
         color: #000;
@@ -175,5 +177,4 @@ const LoginContainer = styled.div`
     flex: 1;
     display: flex;
     justify-content: flex-end;
-    
 `
